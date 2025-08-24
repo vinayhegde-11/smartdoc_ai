@@ -1,1 +1,9 @@
 chromadb
+fastapi
+PyYAML
+uvicorn
+aiofiles
+python-multipart
+langchain-text-splitters
+markitdown[all]
+sentence-transformer

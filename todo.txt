@@ -1,0 +1,25 @@
+1. save markdown, chunks and embeddings in file
+    1.1 add save function and update in file_ops scripts
+
+2. every time app restart, check for existing db, else add the saved embedding and chunks to permanent db.
+
+3. think of faster way to spin up dbs after initializing the app
+
+4. work with temporary database
+    4.1 save to temp db
+    4.2 add and query temp db
+    4.3 delete temp db collection after the session
+
+5. Integrate LLM through Openrouter api for Summarize and QA on queries.
+
+6. create api endpoints
+    6.1 GET db content and POST new content to db
+    6.2 DELETE Temp db
+    6.3 ASK question and summarize
+
+*********** Optional() *************
+7. Work on Sessions and auth each user
+8. Work on short and long memory conversations(QA as well as Summarization)
+    8.1 summarize and then qa!? why not!!
+9. Good UI using Lovable/BOLT/V0.
+10. Why not HOST on vercel or Hostinger?
