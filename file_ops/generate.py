@@ -1,8 +1,7 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-import os
+from sentence_transformers import SentenceTransformer
 
-PERMANENT_CHUNK_PATH = ""
-TEMP_CHUNK_PATH = ""
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', device='cpu')
 
 def create_chunks(text:str,is_permanent:bool=False):
     # ✅ Split into overlapping chunks
@@ -14,3 +13,7 @@ def create_chunks(text:str,is_permanent:bool=False):
     )
     chunks = text_splitter.split_text(text)
     return chunks
+
+def generate_embeddings(chunks,is_permanent:bool=False):
+    embeddings = model.encode(chunks)
+    return embeddings

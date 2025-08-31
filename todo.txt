@@ -1,5 +1,6 @@
 1. save markdown, chunks and embeddings in file
     1.1 add save function and update in file_ops scripts
+DONE
 
 2. every time app restart, check for existing db, else add the saved embedding and chunks to permanent db.
 
