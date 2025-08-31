@@ -1,14 +1,15 @@
 # smartdoc_ai
 
-## PHASE-1: Work Completed
+## Features & Workflow
 
-- Project workspace initialized
-- Directory structure created: db_ops, file_ops, samples, vector_db
-- Python virtual environment set up
-- Initial scripts added: db_client.py, db_manager.py, converter.py, generate_chunks.py, generate_embeddings.py
-- Sample file testing
-- Vector database files created (chroma.sqlite3, data_level0.bin, etc.)
-- Python requirements file added
+- Uses a YAML config file (`config.yml`) for all major settings (API keys, model, storage paths, etc.)
+- All configs loaded via `config_loader.py` for easy environment changes
+- Modular file structure: `db_ops`, `file_ops`, `samples`, `vector_db`
+- RAG (Retrieval Augmented Generation) pipeline: PDF → Markdown → Chunks → Embeddings → Vector DB → LLM
+- Uses ChromaDB for vector storage and retrieval
+- Integrates OpenRouter API via LangChain (`ChatOpenAI`)
+- Conversation memory with `ConversationSummaryMemory` for multi-turn chat
+- Schematic search and memory features
 
 ## Setup Instructions
 
@@ -23,16 +24,21 @@
 	pip install -r python_requirements.txt
 	```
 
-3. **Run tests:**
+3. **Configure your environment:**
+	- Edit `config.yml` with your API keys, model, and paths.
+
+4. **Run the main app:**
 	```bash
 	python test.py
 	```
 
-4. **Project Structure:**
+5. **Project Structure:**
 	- `db_ops/`: Database client and manager scripts
 	- `file_ops/`: File conversion, chunk generation, and embedding scripts
 	- `samples/`: Sample files for testing
 	- `vector_db/`: Vector database files
+	- `config.yml`: Main configuration file
+	- `config_loader.py`: Loads config for all modules
 	- `python_requirements.txt`: Python dependencies
 	- `test.py`: Test script
 	- `README.md`: Project documentation
