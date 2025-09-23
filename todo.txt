@@ -11,7 +11,7 @@ DONE
     4.2 add and query temp db
     4.3 delete temp db collection after the session
 
-5. Integrate LLM through Openrouter api for Summarize and QA on queries.
+5. Integrate LLM through Openrouter api for Summarize and QA on queries. done
 
 6. create api endpoints
     6.1 GET db content and POST new content to db

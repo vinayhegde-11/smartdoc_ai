@@ -11,3 +11,4 @@ sentence-transformer
 langchain
 langchain-openai
 openai
+rank-bm25

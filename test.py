@@ -18,14 +18,14 @@ MODEL_NAME = config['MODEL_NAME']
 REQUEST_URL = config['REQUEST_URL']
 
 
-file_path = "samples/story.pdf"
+file_path = "samples/Football_Basics.pdf"
 is_permanent=False
 filename = os.path.basename(file_path).split('.')[0]
 markdown_output = convert_file_to_markdown(file_path,is_permanent=is_permanent)
 chunks = create_chunks(markdown_output)
 embeddings = generate_embeddings(chunks)
 ids = [f"{filename}_{i+1}"for i in range(len(chunks))]
-dbm.add_to_permanent(ids,chunks,embeddings)
+dbm.add_to_db(ids,chunks,embeddings,is_permanent)
 
 
 llm = ChatOpenAI(
@@ -48,7 +48,9 @@ while True:
     
     # Embed query, search DB
     user_embedding = generate_embeddings(user_q)
-    query_res = dbm.query_permanent(user_embedding)["documents"]
+    # query_res = dbm.query_permanent(user_embedding)["documents"]
+    query_res = dbm.hybrid_query(user_q, user_embedding, top_k=5, alpha=0.5, is_permanent=is_permanent)
+
 
     qna_prompt = f"""
     Answer the following question based on the retrieved documents.

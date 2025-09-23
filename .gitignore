@@ -2,3 +2,5 @@ venv
 vector_db
 __pycache__/
 storage/permanent/
+storage/temporary/
+config.yml
