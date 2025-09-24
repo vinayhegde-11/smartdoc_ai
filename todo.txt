@@ -1,26 +1,27 @@
-1. save markdown, chunks and embeddings in file
-    1.1 add save function and update in file_ops scripts
-DONE
+1. Save markdown, chunks and embeddings in file
+    1.1 Add save function and update in file_ops scripts
+    [DONE]
 
-2. every time app restart, check for existing db, else add the saved embedding and chunks to permanent db.
+2. Every time app restarts, check for existing db, else add the saved embedding and chunks to permanent db
+    [DONE]
 
-3. think of faster way to spin up dbs after initializing the app
+3. Work with temporary database
+    3.1 Save to temp db
+    3.2 Add and query temp db
+    3.3 Delete temp db collection after the session
+    [DONE]
 
-4. work with temporary database
-    4.1 save to temp db
-    4.2 add and query temp db
-    4.3 delete temp db collection after the session
+4. Integrate LLM through Openrouter API for Summarize and QA on queries
+    [DONE]
 
-5. Integrate LLM through Openrouter api for Summarize and QA on queries. done
+5. Create API endpoints
+    5.1 GET db content and POST new content to db
+    5.2 DELETE Temp db
+    5.3 ASK question and summarize
+    [DONE]
 
-6. create api endpoints
-    6.1 GET db content and POST new content to db
-    6.2 DELETE Temp db
-    6.3 ASK question and summarize
+6. Integrate file upload directly within chat window (not just sidebar)
 
-*********** Optional() *************
-7. Work on Sessions and auth each user
-8. Work on short and long memory conversations(QA as well as Summarization)
-    8.1 summarize and then qa!? why not!!
-9. Good UI using Lovable/BOLT/V0.
-10. Why not HOST on vercel or Hostinger?
+7. UX fixes for chat and upload flow
+
+8. User login and account system (long-term)

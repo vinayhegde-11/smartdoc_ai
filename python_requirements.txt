@@ -12,3 +12,5 @@ langchain
 langchain-openai
 openai
 rank-bm25
+streamlit
+streamlit-option-menu
