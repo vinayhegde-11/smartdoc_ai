@@ -4,12 +4,11 @@ PyYAML
 uvicorn
 aiofiles
 python-multipart
-langchain-text-splitters
+langchain-text-splitters==0.3.9
 markitdown[all]
 sentence-transformer
-
-langchain
-langchain-openai
+langchain==0.3.27
+langchain-openai==0.3.32
 openai
 rank-bm25
 streamlit
