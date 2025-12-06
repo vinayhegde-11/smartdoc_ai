@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Evaluation Dashboard - SmartDoc AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-brain"></i> SmartDoc AI
+            </div>
+
+            <div class="session-controls">
+                <a href="/static/" class="secondary-btn" style="text-decoration: none;">
+                    <i class="fas fa-comments"></i> Chat
+                </a>
+                <a href="/static/eval.html" class="secondary-btn active" style="text-decoration: none;">
+                    <i class="fas fa-chart-bar"></i> Evaluation
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>RAG Metrics Dashboard</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="chat-area">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-content">
+                    <h2>RAG Evaluation Dashboard</h2>
+                    <p class="subtitle">Monitor and analyze your retrieval-augmented generation performance</p>
+                </div>
+                <div class="header-actions">
+                    <button id="run-eval-btn" class="primary-btn">
+                        <i class="fas fa-play"></i> Run Evaluation
+                    </button>
+                    <button id="refresh-btn" class="secondary-btn">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </header>
+
+            <!-- Metrics Overview Cards -->
+            <section class="metrics-overview">
+                <div class="metric-card">
+                    <div class="metric-icon context-precision-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Context Precision</h3>
+                        <p class="metric-value" id="context-precision-value">--</p>
+                        <p class="metric-description">Relevance of retrieved contexts</p>
+                    </div>
+                    <div class="metric-trend" id="context-precision-trend"></div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon context-recall-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Context Recall</h3>
+                        <p class="metric-value" id="context-recall-value">--</p>
+                        <p class="metric-description">Coverage of relevant information</p>
+                    </div>
+                    <div class="metric-trend" id="context-recall-trend"></div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon faithfulness-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Faithfulness</h3>
+                        <p class="metric-value" id="faithfulness-value">--</p>
+                        <p class="metric-description">Answer accuracy to context</p>
+                    </div>
+                    <div class="metric-trend" id="faithfulness-trend"></div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon relevancy-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Answer Relevancy</h3>
+                        <p class="metric-value" id="answer-relevancy-value">--</p>
+                        <p class="metric-description">Relevance to the question</p>
+                    </div>
+                    <div class="metric-trend" id="answer-relevancy-trend"></div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2>Quality Metrics Overview</h2>
+                        <p>Comprehensive view of all quality dimensions</p>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2>Performance Metrics</h2>
+                        <p>Retrieval and generation latency</p>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Evaluation Results Section -->
+            <section class="results-section">
+                <div class="section-header">
+                    <h2>Evaluation Results</h2>
+                    <div class="section-actions">
+                        <button id="export-btn" class="secondary-btn">
+                            <i class="fas fa-download"></i> Export Results
+                        </button>
+                    </div>
+                </div>
+
+                <div id="evaluation-status" class="status-banner"></div>
+
+                <div class="results-table-container">
+                    <table id="results-table" class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Precision</th>
+                                <th>Recall</th>
+                                <th>Faithfulness</th>
+                                <th>Relevancy</th>
+                                <th>Ret. Time (s)</th>
+                                <th>Gen. Time (s)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-tbody">
+                            <tr class="no-data">
+                                <td colspan="8">
+                                    <div class="no-data-message">
+                                        <i class="fas fa-inbox"></i>
+                                        <p>No evaluation results yet</p>
+                                        <p class="hint">Click "Run Evaluation" to start</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Details Modal -->
+            <div id="details-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Evaluation Details</h2>
+                        <button class="close-btn" onclick="closeModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="modal-body" class="modal-body"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="eval.js"></script>
+</body>
+
+</html>

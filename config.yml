@@ -1,5 +1,0 @@
-OPENAROUTER_API_KEY: "OPENAROUTER_API_KEY"
-DB_PATH: "vector_db"
-REQUEST_URL: "https://openrouter.ai/api/v1"
-MODEL_NAME: "openai/gpt-oss-20b:free"
-STORAGE_PATH: "storage/permanent"

@@ -1,0 +1,101 @@
+[
+    {
+        "question": "What does tokenization entail, and why is it critical for LLMs?",
+        "ground_truth": "Tokenization involves breaking down text into smaller units, or tokens, such as words, subwords, or characters. This process is vital because LLMs process numerical representations of tokens, not raw text. Tokenization enables models to handle diverse languages, manage rare or unknown words, and optimize vocabulary size, enhancing computational efficiency and model performance.",
+        "expected_context_keywords": [
+            "tokenization",
+            "tokens",
+            "LLM",
+            "text"
+        ]
+    },
+    {
+        "question": "How does the attention mechanism function in transformer models?",
+        "ground_truth": "The attention mechanism allows LLMs to weigh the importance of different tokens in a sequence when generating or interpreting text. It computes similarity scores between query, key, and value vectors to focus on relevant tokens. This mechanism improves context understanding, making transformers highly effective for NLP tasks.",
+        "expected_context_keywords": [
+            "attention",
+            "mechanism",
+            "transformer",
+            "tokens"
+        ]
+    },
+    {
+        "question": "What is the context window in LLMs, and why does it matter?",
+        "ground_truth": "The context window refers to the number of tokens an LLM can process at once, defining its memory for understanding or generating text. A larger window allows the model to consider more context, improving coherence in tasks like summarization. However, it increases computational costs. Balancing window size with efficiency is crucial for practical LLM deployment.",
+        "expected_context_keywords": [
+            "context window",
+            "tokens",
+            "LLM",
+            "memory"
+        ]
+    },
+    {
+        "question": "What distinguishes LoRA from QLoRA in fine-tuning LLMs?",
+        "ground_truth": "LoRA (Low-Rank Adaptation) is a fine-tuning method that adds low-rank matrices to a model's layers, enabling efficient adaptation with minimal memory overhead. QLoRA extends this by applying quantization (e.g., 4-bit precision) to further reduce memory usage while maintaining accuracy. QLoRA can fine-tune large models on a single GPU, making it ideal for resource-constrained environments.",
+        "expected_context_keywords": [
+            "LoRA",
+            "QLoRA",
+            "fine-tuning",
+            "quantization"
+        ]
+    },
+    {
+        "question": "How does beam search improve text generation compared to greedy decoding?",
+        "ground_truth": "Beam search explores multiple word sequences during text generation, keeping the top k candidates (beams) at each step, unlike greedy decoding which selects only the most probable word. This approach ensures more coherent outputs by balancing probability and diversity, especially in tasks like machine translation or dialogue generation.",
+        "expected_context_keywords": [
+            "beam search",
+            "greedy decoding",
+            "text generation"
+        ]
+    },
+    {
+        "question": "What role does temperature play in controlling LLM output?",
+        "ground_truth": "Temperature is a hyperparameter that adjusts the randomness of token selection in text generation. A low temperature favors high-probability tokens, producing predictable outputs. A high temperature increases diversity by flattening the probability distribution. Setting temperature to 0.8 often balances creativity and coherence for tasks like storytelling.",
+        "expected_context_keywords": [
+            "temperature",
+            "hyperparameter",
+            "randomness",
+            "LLM"
+        ]
+    },
+    {
+        "question": "What is masked language modeling, and how does it aid pretraining?",
+        "ground_truth": "Masked language modeling (MLM) involves hiding random tokens in a sequence and training the model to predict them based on context. Used in models like BERT, MLM fosters bidirectional understanding of language, enabling the model to grasp semantic relationships. This pretraining approach equips LLMs for tasks like sentiment analysis or question answering.",
+        "expected_context_keywords": [
+            "masked language modeling",
+            "MLM",
+            "BERT",
+            "pretraining"
+        ]
+    },
+    {
+        "question": "What are sequence-to-sequence models, and where are they applied?",
+        "ground_truth": "Sequence-to-sequence (Seq2Seq) models transform an input sequence into an output sequence, often of different lengths. They consist of an encoder to process the input and a decoder to generate the output. Applications include machine translation, text summarization, and chatbots, where variable-length inputs and outputs are common.",
+        "expected_context_keywords": [
+            "sequence-to-sequence",
+            "Seq2Seq",
+            "encoder",
+            "decoder"
+        ]
+    },
+    {
+        "question": "How do autoregressive and masked models differ in LLM training?",
+        "ground_truth": "Autoregressive models, like GPT, predict tokens sequentially based on prior tokens, excelling in generative tasks such as text completion. Masked models, like BERT, predict masked tokens using bidirectional context, making them ideal for understanding tasks like classification. Their training objectives shape their strengths in generation versus comprehension.",
+        "expected_context_keywords": [
+            "autoregressive",
+            "masked models",
+            "GPT",
+            "BERT"
+        ]
+    },
+    {
+        "question": "What are embeddings, and how are they initialized in LLMs?",
+        "ground_truth": "Embeddings are dense vectors that represent tokens in a continuous space, capturing semantic and syntactic properties. They are often initialized randomly or with pretrained models like GloVe, then fine-tuned during training. The embedding for a word evolves to reflect its context in specific tasks, enhancing model accuracy.",
+        "expected_context_keywords": [
+            "embeddings",
+            "vectors",
+            "tokens",
+            "GloVe"
+        ]
+    }
+]

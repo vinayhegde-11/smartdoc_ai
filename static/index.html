@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDoc AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-brain"></i> SmartDoc AI
+            </div>
+
+            <div class="upload-section">
+                <label for="file-upload" class="upload-btn">
+                    <i class="fas fa-cloud-upload-alt"></i> Upload Document
+                </label>
+                <input type="file" id="file-upload" hidden>
+                <div id="upload-status" class="status-msg"></div>
+            </div>
+
+            <div class="session-controls">
+                <button id="new-session-btn" class="secondary-btn">
+                    <i class="fas fa-plus"></i> New Session
+                </button>
+                <button id="end-session-btn" class="danger-btn">
+                    <i class="fas fa-trash-alt"></i> End Session
+                </button>
+                <a href="eval.html" class="secondary-btn" style="text-decoration: none; margin-top: 1rem;">
+                    <i class="fas fa-chart-line"></i> Evaluation
+                </a>
+            </div>
+
+            <div class="history-section">
+                <h3>Chat History</h3>
+                <div id="history-list" class="history-list">
+                    <!-- History items will be added here -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <div class="chat-header">
+                <h2>Document Chat</h2>
+                <span id="current-session-id" class="session-badge">Session: None</span>
+            </div>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="message system">
+                    <div class="message-content">
+                        Welcome to SmartDoc AI! Upload a document to get started.
+                    </div>
+                </div>
+            </div>
+
+            <div id="suggestions-container" class="suggestions-container">
+                <!-- Suggested questions will appear here -->
+            </div>
+
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="chat-input" placeholder="Ask a question about your documents..." rows="1"></textarea>
+                    <button id="send-btn" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

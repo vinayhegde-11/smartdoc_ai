@@ -1,6 +1,9 @@
-venv
+.venv
 vector_db
 __pycache__/
-storage/permanent/
-storage/temporary/
 config.yml
+.env
+temp_uploads_st
+samples/
+artifacts/
+logs/

@@ -1,0 +1,17 @@
+# config/config.yaml
+vertex:
+  model_name: "gemini-2.0-flash"
+  temperature: 0.1
+  max_tokens: 2048
+
+ingestion:
+  chunk_max_characters: 3000
+
+vectorstore:
+  persist_directory: "./vector_db"
+  collection_name: "smartdoc"
+
+ui:
+  port: 7860
+  host: "127.0.0.1"
+  share: true
