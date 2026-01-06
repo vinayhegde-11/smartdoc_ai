@@ -168,17 +168,12 @@ SmartDoc AI
 - **Retrieval tuning**: Increased `top_k` from 5 → 10 → 15 for evaluation
 - **Prompt engineering**: Reduced hallucinations through strict instruction prompts
 
-### 4. Evaluation Integration
-- **Async event loop conflicts**: ThreadPoolExecutor for Ragas execution
-- **Metric parsing**: Handled EvaluationResult object structure
-- **Performance optimization**: Batch processing with configurable workers
-
-### 5. Configuration Management
+### 4. Configuration Management
 - Externalized all **hardcoded model names** to environment variables
 - Created **centralized config module** for maintainability
 - Ensured **GitHub-safe** codebase with .env pattern
 
-### 6. UI/UX Consistency
+### 5. UI/UX Consistency
 - **Unified styling** across chat and evaluation pages
 - **Responsive design** for mobile/desktop
 - **Accessibility**: Clear visual hierarchy and feedback
